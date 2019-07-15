@@ -12,6 +12,7 @@ declare(strict_types=1);
 return [
     'dependencies' => [
         'factories' => [
+            App\Action\AlbumGetAction::class => App\Action\AlbumGetActionFactory::class,
             examplemodule\Handler\IndexHandler::class => examplemodule\Handler\IndexHandlerFactory::class,
         ],
     ],

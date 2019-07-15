@@ -35,4 +35,7 @@ use Zend\Expressive\MiddlewareFactory;
 return function (Application $app, MiddlewareFactory $factory, ContainerInterface $container) : void {
     $app->get('/', App\Handler\HomePageHandler::class, 'home');
     $app->get('/api/ping', App\Handler\PingHandler::class, 'api.ping');
+    $app->get('/ddd', App\Handler\PingHandler::class, 'ddd.ping');
+
+    $app->get('/album/:id', App\Action\AlbumGetAction::class, 'album.get');
 };
