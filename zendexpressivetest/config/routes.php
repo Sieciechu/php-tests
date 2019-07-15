@@ -38,4 +38,6 @@ return function (Application $app, MiddlewareFactory $factory, ContainerInterfac
     $app->get('/ddd', App\Handler\PingHandler::class, 'ddd.ping');
 
     $app->get('/album/:id', App\Action\AlbumGetAction::class, 'album.get');
+
+    $app->get('/hello/:kk', App\Handler\HelloHandler::class, 'hello');
 };

@@ -14,6 +14,7 @@ use Zend\Expressive\Router\Middleware\ImplicitOptionsMiddleware;
 use Zend\Expressive\Router\Middleware\MethodNotAllowedMiddleware;
 use Zend\Expressive\Router\Middleware\RouteMiddleware;
 use Zend\Stratigility\Middleware\ErrorHandler;
+use Zend\Stratigility\Middleware\OriginalMessages;
 
 /**
  * Setup middleware pipeline:
@@ -21,6 +22,7 @@ use Zend\Stratigility\Middleware\ErrorHandler;
 return function (Application $app, MiddlewareFactory $factory, ContainerInterface $container) : void {
     // The error handler should be the first (most outer) middleware to catch
     // all Exceptions.
+    $app->pipe(OriginalMessages::class);
     $app->pipe(ErrorHandler::class);
     $app->pipe(ServerUrlMiddleware::class);
 

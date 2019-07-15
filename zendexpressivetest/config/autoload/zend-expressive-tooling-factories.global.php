@@ -13,6 +13,7 @@ return [
     'dependencies' => [
         'factories' => [
             App\Action\AlbumGetAction::class => App\Action\AlbumGetActionFactory::class,
+            App\Handler\HelloHandler::class => App\Handler\HelloHandlerFactory::class,
             examplemodule\Handler\IndexHandler::class => examplemodule\Handler\IndexHandlerFactory::class,
         ],
     ],
