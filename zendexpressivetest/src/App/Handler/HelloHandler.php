@@ -15,6 +15,7 @@ class HelloHandler implements RequestHandlerInterface
     {
 
         $target = $request->getQueryParams()['target'] ?? 'World';
+        $target = $request->getAttribute("name") ?? $target;
         $target = htmlspecialchars($target, ENT_HTML5, 'UTF-8');
         return new HtmlResponse(sprintf(
             '<h1>Hello %s</h1>',

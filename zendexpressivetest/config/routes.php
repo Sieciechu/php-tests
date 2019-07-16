@@ -37,7 +37,7 @@ return function (Application $app, MiddlewareFactory $factory, ContainerInterfac
     $app->get('/api/ping', App\Handler\PingHandler::class, 'api.ping');
     $app->get('/ddd', App\Handler\PingHandler::class, 'ddd.ping');
 
-    $app->get('/album/:id', App\Action\AlbumGetAction::class, 'album.get');
+    $app->get('/album/{id:\d+}', App\Action\AlbumGetAction::class, 'album.get');
 
-    $app->get('/hello/:kk', App\Handler\HelloHandler::class, 'hello');
+    $app->get('/hello[/{name:[a-żA-Ż]+}]', App\Handler\HelloHandler::class, 'hello');
 };

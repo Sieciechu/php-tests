@@ -13,6 +13,6 @@ class AlbumGetAction implements RequestHandlerInterface
 {
     public function handle(ServerRequestInterface $request) : ResponseInterface
     {
-        return new JsonResponse(['album-id' => 888]);
+        return new JsonResponse(['album-id' => $request->getAttribute("id")]);
     }
 }
