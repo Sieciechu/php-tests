@@ -18,18 +18,31 @@ return [
     'dependencies' => [
         'invokables' => [
         ],
-        'factories'  => [
-            ErrorResponseGenerator::class       => Container\WhoopsErrorResponseGeneratorFactory::class,
-            'Zend\Expressive\Whoops'            => Container\WhoopsFactory::class,
+        'factories' => [
+            ErrorResponseGenerator::class => Container\WhoopsErrorResponseGeneratorFactory::class,
+            'Zend\Expressive\Whoops' => Container\WhoopsFactory::class,
             'Zend\Expressive\WhoopsPageHandler' => Container\WhoopsPageHandlerFactory::class,
         ],
     ],
 
     'whoops' => [
         'json_exceptions' => [
-            'display'    => true,
+            'display' => true,
             'show_trace' => true,
-            'ajax_only'  => true,
+            'ajax_only' => true,
+        ],
+    ],
+    
+
+    'phpmiddleware' => [
+        'phpdebugbar' => [
+            'javascript_renderer' => [
+                'base_url' => '/phpdebugbar',
+            ],
+            'collectors' => [
+                DebugBar\DataCollector\ConfigCollector::class, // Service names of collectors
+            ],
+            'storage' => null, // Service name of storage
         ],
     ],
 ];
