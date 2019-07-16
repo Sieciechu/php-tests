@@ -1,0 +1,1 @@
+docker container run -it --rm -v "$PWD":/app -v composercache:/tmp -w /app --env COMPOSER_HOME=/app --env COMPOSER_CACHE_DIR=/tmp -u "1000:1000" --expose 8080 -p 8080:8080 composer composer run --timeout=0 serve
