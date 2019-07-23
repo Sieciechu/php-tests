@@ -10,6 +10,7 @@ class HelloHandlerFactory
 {
     public function __invoke(ContainerInterface $container) : HelloHandler
     {
-        return new HelloHandler();
+        file_put_contents('/dev/stderr', __FILE__.__LINE__.PHP_EOL, FILE_APPEND);
+        return new HelloHandler("testtt");
     }
 }

@@ -10,6 +10,7 @@ class AlbumGetActionFactory
 {
     public function __invoke(ContainerInterface $container) : AlbumGetAction
     {
+        file_put_contents('/dev/stderr', __FILE__.__LINE__.PHP_EOL, FILE_APPEND);
         return new AlbumGetAction();
     }
 }
