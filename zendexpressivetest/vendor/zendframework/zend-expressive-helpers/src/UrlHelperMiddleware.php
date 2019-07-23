@@ -43,6 +43,8 @@ class UrlHelperMiddleware implements MiddlewareInterface
             $this->helper->setRouteResult($result);
         }
 
-        return $handler->handle($request);
+        $x = $handler->handle($request);
+        file_put_contents('/dev/stderr', __FILE__.__LINE__.PHP_EOL, FILE_APPEND);
+        return $x;
     }
 }

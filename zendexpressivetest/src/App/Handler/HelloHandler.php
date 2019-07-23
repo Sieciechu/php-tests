@@ -21,6 +21,7 @@ class HelloHandler implements RequestHandlerInterface
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
 
+        file_put_contents('/dev/stderr', __FILE__.__LINE__.PHP_EOL, FILE_APPEND);
         $target = $request->getQueryParams()['target'] ?? 'World';
         $target = $request->getAttribute("name") ?? $target;
         $target = htmlspecialchars($target, ENT_HTML5, 'UTF-8');

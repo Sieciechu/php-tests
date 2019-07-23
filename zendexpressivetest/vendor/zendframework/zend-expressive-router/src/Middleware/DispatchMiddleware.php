@@ -28,6 +28,7 @@ class DispatchMiddleware implements MiddlewareInterface
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler) : ResponseInterface
     {
         $routeResult = $request->getAttribute(RouteResult::class, false);
+        file_put_contents('/dev/stderr', __FILE__.__LINE__.PHP_EOL, FILE_APPEND);
         if (! $routeResult) {
             return $handler->handle($request);
         }
