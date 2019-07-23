@@ -64,6 +64,7 @@ class NotFoundHandler implements RequestHandlerInterface
      */
     public function handle(ServerRequestInterface $request) : ResponseInterface
     {
+        file_put_contents('/dev/stderr', __FILE__.__LINE__.PHP_EOL, FILE_APPEND);
         if ($this->renderer === null) {
             return $this->generatePlainTextResponse($request);
         }

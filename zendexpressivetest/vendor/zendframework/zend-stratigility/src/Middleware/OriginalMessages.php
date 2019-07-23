@@ -37,6 +37,7 @@ final class OriginalMessages implements MiddlewareInterface
         $request = $request
             ->withAttribute('originalUri', $request->getUri())
             ->withAttribute('originalRequest', $request);
+        file_put_contents('/dev/stderr', __FILE__.__LINE__.PHP_EOL, FILE_APPEND);
         return $handler->handle($request);
     }
 }

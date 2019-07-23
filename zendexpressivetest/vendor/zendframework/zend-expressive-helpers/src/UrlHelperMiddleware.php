@@ -38,6 +38,7 @@ class UrlHelperMiddleware implements MiddlewareInterface
     {
         $result = $request->getAttribute(RouteResult::class, false);
 
+        file_put_contents('/dev/stderr', __FILE__.__LINE__.PHP_EOL, FILE_APPEND);
         if ($result instanceof RouteResult) {
             $this->helper->setRouteResult($result);
         }
