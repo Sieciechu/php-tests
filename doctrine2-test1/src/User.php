@@ -25,12 +25,12 @@ class User
         return $this->id;
     }
 
-    public function addReportedBug(Bug $bug)
+    public function addReportedBug(Bug $bug): void
     {
         $this->reportedBugs[] = $bug;
     }
 
-    public function assignedToBug(Bug $bug)
+    public function assignedToBug(Bug $bug): void
     {
         $this->assignedBugs[] = $bug;
     }

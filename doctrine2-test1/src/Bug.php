@@ -21,19 +21,19 @@ class Bug
         $this->products = new ArrayCollection();
     }
 
-    public function assignEngineer(User $engineer)
+    public function assignEngineer(User $engineer): void
     {
         $engineer->assignedToBug($this);
         $this->engineer = $engineer;
     }
 
-    public function assignReporter(User $reporter)
+    public function assignReporter(User $reporter): void
     {
         $reported->addReportedBug($this);
         $this->reporter = $reporter;
     }
 
-    public function assignToProduct(Product $p)
+    public function assignToProduct(Product $p): void
     {
         $this->products[] = $p;
     }
