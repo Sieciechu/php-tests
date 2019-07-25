@@ -2,33 +2,31 @@
 
 declare(strict_types=1);
 
+use Doctrine\Common\Collections\ArrayCollection;
+
 class User
 {
-    private $banned;
-    private $username;
-    private $passwordHash;
-    private $bans;
+    private int $id;
+    private string $name;
 
-    public function toNickname(): string
+    private $reportedBugs;
+
+    private $assignedBugs;
+
+    public function __construct()
     {
-        return $this->username;
+        $this->reportedBugs = new ArrayCollection();
+        $this->assignedBugs = new ArrayCollection();
     }
 
-    public function authenticate(string $password, callable $checkHash): bool
+    public function addReportedBug(Bug $bug)
     {
-        return $checkHash($password, $this->passwordHash) && ! $this->hasActiveBans();
+        $this->reportedBugs[] = $bug;
     }
 
-    public function changePassword(string $password, callable $hash): void
+    public function assignedToBug(Bug $bug)
     {
-        $this->passwordHash = $hash($password);
-    }
-
-    public function ban(\DateInterval $duration): void
-    {
-        assert($duration->invert !== 1);
-
-        $this->bans[] = new Ban($this);
+        $this->assignedBugs[] = $bug;
     }
 }
 
