@@ -16,9 +16,12 @@ class Bug
 
     private $products;
 
-    public function __construct()
+    public function __construct(string $description, DateTime $created)
     {
+        $this->description = $description;
+        $this->created = clone $created;
         $this->products = new ArrayCollection();
+        $this->status = "OPEN";
     }
 
     public function assignEngineer(User $engineer): void
@@ -36,6 +39,11 @@ class Bug
     public function assignToProduct(Product $p): void
     {
         $this->products[] = $p;
+    }
+
+    public function getId(): int
+    {
+        return $this->id;
     }
 }
 
