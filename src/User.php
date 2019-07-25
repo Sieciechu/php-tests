@@ -31,3 +31,4 @@ class User
         $this->bans[] = new Ban($this);
     }
 }
+
