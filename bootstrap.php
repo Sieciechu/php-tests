@@ -7,7 +7,7 @@ require_once 'vendor/autoload.php';
 
 // Create a simple "default" Doctrine ORM configuration for Annotations
 $isDevMode = true;
-$config = Setup::createXMLMetadataConfiguration([__DIR__.'/src'], $isDevMode);
+$config = Setup::createXMLMetadataConfiguration([__DIR__.'/config'], $isDevMode);
 
 $conn = [
     'driver' => 'pdo_sqlite',
