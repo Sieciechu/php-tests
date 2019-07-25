@@ -1,21 +1,19 @@
 <?php
 
+use Ramsey\Uuid\UuidInterface;
+
 class Product
 {
-    /** @var int */
-    private int $id;
+    private UuidInterface $id;
 
-    /** @var string */
     private string $name;
 
-    public function __construct(string $productName) {
+    public function __construct(UuidInterface $uuid, string $productName) {
         $this->name = $productName;
+        $this->id = $uuid;
     }
 
-    /**
-     * @return int
-     */
-    public function getId(): int
+    public function getId(): UuidInterface
     {
         return $this->id;
     }
