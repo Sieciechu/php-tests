@@ -6,7 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 class User
 {
-    private int $id;
+    private $id;
     private string $name;
 
     private $reportedBugs;
