@@ -5,7 +5,7 @@
               https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
     <entity name="Product" table="products">
-        <id name="id" type="string"/>
+        <id name="id" type="uuid" unique="true"/>
 
         <field name="name" type="string"/>
     </entity>

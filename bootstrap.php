@@ -16,3 +16,6 @@ $conn = [
 ];
 
 $entityManager = EntityManager::create($conn, $config);
+
+\Doctrine\DBAL\Types\Type::addType('uuid', 'Ramsey\Uuid\Doctrine\UuidType');
+
