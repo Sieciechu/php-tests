@@ -29,7 +29,7 @@ class Bug
 
     public function assignReporter(User $reporter): void
     {
-        $reported->addReportedBug($this);
+        $reporter->addReportedBug($this);
         $this->reporter = $reporter;
     }
 
