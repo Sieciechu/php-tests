@@ -13,10 +13,16 @@ class User
 
     private $assignedBugs;
 
-    public function __construct()
+    public function __construct(string $name)
     {
         $this->reportedBugs = new ArrayCollection();
         $this->assignedBugs = new ArrayCollection();
+        $this->name = $name;
+    }
+
+    public function getId(): int
+    {
+        return $this->id;
     }
 
     public function addReportedBug(Bug $bug)
