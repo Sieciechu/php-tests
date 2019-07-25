@@ -6,7 +6,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 class Bug
 {
-    private int $id;
+    /** @var int $id */
+    private $id;
     private string $description;
     private DateTime $created;
     private string $status;
