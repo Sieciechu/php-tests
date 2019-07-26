@@ -1,8 +1,8 @@
 <?php
 
-use Ramsey\Uuid\Uuid;
-
 declare(strict_types=1);
+
+use Ramsey\Uuid\Uuid;
 
 require_once __DIR__.'/bootstrap.php';
 

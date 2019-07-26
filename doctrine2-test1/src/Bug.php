@@ -6,14 +6,17 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 class Bug
 {
-    /** @var int $id */
+    /** @var ?int $id */
     private $id;
     private string $description;
     private DateTime $created;
     private string $status;
 
-    private User $engineer;
-    private User $reporter;
+    /** @var ?User */
+    private $engineer;
+
+    /** @var ?User */
+    private $reporter;
 
     private $products;
 
@@ -45,6 +48,51 @@ class Bug
     public function getId(): int
     {
         return $this->id;
+    }
+
+    public function getDescription(): string
+    {
+        return $this->description;
+    }
+
+    /**
+     * @return DateTime
+     */
+    public function getCreated(): DateTime
+    {
+        return $this->created;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStatus(): string
+    {
+        return $this->status;
+    }
+
+    /**
+     * @return User
+     */
+    public function getEngineer(): User
+    {
+        return $this->engineer;
+    }
+
+    /**
+     * @return User
+     */
+    public function getReporter(): User
+    {
+        return $this->reporter;
+    }
+
+    /**
+     * @return Iterable
+     */
+    public function getProducts()
+    {
+        return $this->products;
     }
 }
 
