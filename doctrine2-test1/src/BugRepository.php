@@ -13,7 +13,7 @@ class BugRepository extends EntityRepository {
             JOIN b.reporter r
             ORDER BY b.created DESC';
 
-        $query = $this->getEntityManager->createQuery($dql);
+        $query = $this->getEntityManager()->createQuery($dql);
         $query->setMaxResults($limit);
         return $query->getResult();
     }
@@ -27,7 +27,7 @@ class BugRepository extends EntityRepository {
             JOIN b.products p
             ORDER BY b.created DESC';
 
-        $query = $this->getEntityManager->createQuery($dql);
+        $query = $this->getEntityManager()->createQuery($dql);
         $query->setMaxResults($limit);
         return $query->getArrayResult();
     }
@@ -44,7 +44,7 @@ class BugRepository extends EntityRepository {
             ORDER BY b.created DESC";
 
 
-        return $entityManager->createQuery($dql)
+        return $this->getEntityManager()->createQuery($dql)
             ->setParameter('1', $userId)
             ->setMaxResults($limit)
             ->getResult();
@@ -63,7 +63,7 @@ class BugRepository extends EntityRepository {
             ";
 
 
-        return $entityManager->createQuery($dql)->getScalarResult();
+        return $this->getEntityManager()->createQuery($dql)->getScalarResult();
     }
 }
 

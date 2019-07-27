@@ -2,17 +2,8 @@
 
 require_once __DIR__ . '/bootstrap.php';
 
-$dql = 'SELECT b, e, r, p
-    FROM Bug b
-    JOIN b.engineer e
-    JOIN b.reporter r
-    JOIN b.products p
-    ORDER BY b.created DESC';
-
 /** @var \Doctrine\ORM\EntityManager $entityManager */
-$query = $entityManager->createQuery($dql);
-$query->setMaxResults(30);
-$bugs = $query->getArrayResult();
+$bugs = $entityManager->getRepository('Bug')->getRecentBugsArray();
 
 foreach ($bugs as $bug) {
     echo $bug['description']." - ".$bug['created']->format('d.m.Y')."\n";
@@ -23,3 +14,4 @@ foreach ($bugs as $bug) {
     }
     echo "\n";
 }
+
