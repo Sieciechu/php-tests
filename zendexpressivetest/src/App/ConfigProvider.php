@@ -23,6 +23,21 @@ class ConfigProvider
         return [
             'dependencies' => $this->getDependencies(),
             'templates'    => $this->getTemplates(),
+            'app'       => $this->getConfig(),
+        ];
+    }
+
+    public function getConfig() : array
+    {
+        return [
+            'db'     => getenv('DB'),
+            'cache'  => [
+                'enabled' => false,
+            ],
+            'disqus' => [
+                'developer' => 0,
+                'key'       => null,
+            ],
         ];
     }
 
