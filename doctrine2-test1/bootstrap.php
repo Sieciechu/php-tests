@@ -6,7 +6,7 @@ use \Doctrine\ORM\EntityManager;
 
 require_once 'vendor/autoload.php';
 
-// Create a simple "default" Doctrine ORM configuration for Annotations
+// Create a simple "default" Doctrine ORM configuration for XML mapping
 $isDevMode = true;
 $config = Setup::createXMLMetadataConfiguration([__DIR__.'/config'], $isDevMode);
 
