@@ -1,0 +1,22 @@
+version: "3.7"
+services:
+    php:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        volumes:
+            - type: bind
+              source: ./mail.ini
+              target: /usr/local/etc/php/conf.d/mail.ini
+            - type: bind
+              source: ./app.php
+              target: /app/app.php
+        depends_on:
+            - mailhog
+#        command: php /app/run.php
+
+    mailhog:
+        image: mailhog/mailhog:latest
+        ports:
+            - 1025:1025
+            - 8025:8025
