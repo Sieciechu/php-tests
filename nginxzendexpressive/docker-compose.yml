@@ -10,7 +10,10 @@ services:
         links:
             - php
     php:
-        image: php:7.3-fpm
+        image: php:nginxzendexpressive
+        build:
+          context: .
+          dockerfile: Dockerfile
         volumes:
             - .:/app
 
